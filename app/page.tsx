@@ -37,18 +37,27 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-8 px-4 font-bangla">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-3">কুরিয়ার চেকার</h1>
-          <p className="text-lg text-gray-600">এই কাস্টমারকে নিরাপদে পার্সেল দিতে পারেন।</p>
+    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+            কুরিয়ার চেকার
+          </h1>
+          <p className="text-xl text-gray-600">
+            এই কাস্টমারকে নিরাপদে পার্সেল দিতে পারেন।
+          </p>
         </div>
 
+        {/* Input */}
         <PhoneInput onSearch={handleSearch} disabled={loading} />
 
+        {/* Loading/Error/Result */}
         {loading && <LoadingSkeleton />}
         {error && (
-          <div className="text-center text-red-600 text-xl mt-8 p-4 bg-red-50 rounded-xl">{error}</div>
+          <div className="mt-10 p-6 bg-red-50 border border-red-200 text-red-700 rounded-2xl text-center text-lg">
+            {error}
+          </div>
         )}
         {result && <DeliveryResult data={result} />}
       </div>
